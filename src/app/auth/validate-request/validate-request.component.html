@@ -1,0 +1,7 @@
+<div *ngIf="loading; else content">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+
+<ng-template #content>
+  <p>validate-request works!</p>
+</ng-template>

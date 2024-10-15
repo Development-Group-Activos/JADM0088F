@@ -1,0 +1,23 @@
+//@import "~bootstrap/scss/bootstrap";
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/saga-blue/theme.css";
+@import "~primeng/resources/primeng.min.css";
+
+body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.p-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+body.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
