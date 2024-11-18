@@ -1,0 +1,9 @@
+{
+    "/apiCustom/*": {
+        "target": "http://eure.activos.com.co:10501/JADM0088/ws/azfile/upload",
+        "security": "false",
+        "pathRewrite": {
+            "^/apiCustom/": "/"
+        }
+    }  
+}

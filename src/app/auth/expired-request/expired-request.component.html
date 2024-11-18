@@ -1,0 +1,19 @@
+<div class="container">
+  <p-dialog
+
+    [(visible)]="display"
+    [modal]="true"
+    [closable]="false"
+    [draggable]="false"
+    [style]="{'width': '50%', 'max-width': '500px'}"
+    [contentStyle]="{'text-align': 'center'}">
+
+    <p>
+      Lo sentimos pero al parecer esta solicitud de cambio de contraseña ya ha sido realizada o el tiempo para hacerla efectiva ya se cumplió, intente nuevamente.
+    </p>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a class="btn btn-secondary" (click)="redirectToLogin()">Retornar</a>
+    </div>
+  </p-dialog>
+</div>
