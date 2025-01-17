@@ -100,7 +100,8 @@ export class ChangePasswordComponent {
       return; // Detener la ejecución si el campo está vacío
     }
     // Llamar a validatePassword para validar la contraseña
-    if (this.isValidPassword() && this.newPassword === this.confirmPassword) {
+    if (this.newPassword === this.confirmPassword) {
+      if (this.isValidPassword()) {
       const ouValue = 'ou=Clientusers'; // Dominio del usuario
       this.username = this.user ?? '';
       this.ReqId = this.RCS_ID ?? '';
@@ -126,11 +127,23 @@ export class ChangePasswordComponent {
             key: 'passwordToast',
             severity: 'error',
             summary: 'Error',
-            detail: 'Error al actualizar la contraseña, no se puede realizar la solicitud'
+            detail: 'Error la nueva contraseña no debe ser igual a las ultimas 5 contraseñas anteriores'
           });
         }
       );
-    } else {
+    } 
+
+    else {
+      this.messageService.add({
+        key: 'passwordToast',  
+        severity: 'error',
+        summary: 'Error',
+        detail: 'No cumple con los requisitos para crear una contraseña segura.'
+      });
+    }
+
+   }
+    else {
       this.messageService.add({
         key: 'passwordToast',  
         severity: 'error',
