@@ -18,6 +18,8 @@ import { Location } from '@angular/common';
 })
 export class PasswordSuccessComponent implements OnInit {
   user: string = '';
+  page: string = '';
+  emp: string='860090915';
   loading: boolean = true;
 
   constructor(
@@ -26,29 +28,36 @@ export class PasswordSuccessComponent implements OnInit {
     private location: Location,
   ) {}
 
-  ngOnInit():void{
-  
+  ngOnInit(): void {
     history.pushState(null, '', window.location.href);
     window.addEventListener('popstate', () => {
       history.pushState(null, '', window.location.href);
     });
-
-    this.route.paramMap.subscribe(params=>{
-      const UserName:string = params.get('userName') ?? '';
-      this.user=UserName;
-     // console.log('user',UserName);
-      //console.log('user2',this.user);
-      
+  
+    this.route.paramMap.subscribe(params => {
+      const UserName: string = params.get('userName') ?? '';
+      const page: string = params.get('page') ?? 'OFV';
+      const emp: string = params.get('emp') ?? '860090915'; // `emp` con valor por defecto
+  
+      this.user = UserName;
+      this.page = page;
+      this.emp = emp;
+  
       setTimeout(() => {
         this.loading = false;
       }, 1000); 
-
-    })
-  }
-
-  redirectToPasswordReset() {
-    window.location.href = 'https://apps.genialw.com/clientes-oficina-virtual';
+    });
   }
   
-
+  
+  redirectToPasswordReset() {
+    if (this.page === 'BMX') {
+      window.location.href = 'http://apps.activos.com.co/JADM0017/outside/login.xhtml';
+    } else {
+      // Concatenar el parámetro `emp` a la URL
+      const url = `https://apps.genialw.com/clientes-oficina-virtual/#/app-inicio/NI/${this.emp}`;
+      window.location.href = url;
+    }
+  }
+  
 }
