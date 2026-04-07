@@ -6,13 +6,10 @@ import { ExpiredRequestComponent } from './auth/expired-request/expired-request.
 import { ValidateRequestComponent } from './auth/validate-request/validate-request.component';
 import { PasswordSuccessComponent } from './auth/password-success/password-success.component';
 
-
-
 const routes: Routes = [
-  
   { path: 'password-reset', component: PasswordResetComponent },
-  { path: 'success/:userName', component: PasswordSuccessComponent },
-  { path: 'validate-request/:requestId/:userName', component: ValidateRequestComponent },
+  { path: 'success/:userName/:page/:emp', component: PasswordSuccessComponent },
+  { path: 'validate-request/:requestId/:page/:empParam', component: ValidateRequestComponent }, // 🔹 Se añadió ':page'
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'expired-request', component: ExpiredRequestComponent },
   { path: '', redirectTo: '/password-reset', pathMatch: 'full' }
@@ -22,5 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { useHash: true })], 
   exports: [RouterModule]
 })
-
 export class AppRoutingModule { }
