@@ -13,8 +13,8 @@ export class AuthService {
   constructor(private http: HttpClient) {
     const host = window.location.protocol;
     this.apiUrl = host.startsWith('https')
-      ? `${host}${environment.baseUrl}`
-      : `${host}${environment.baseUrlIntranet}`; 
+      ? `${host}${environment.ApiUrlBase}`
+      : `${host}${environment.ApiUrlBaseIntranet}`; 
   }
 
 //  Método para encriptar los datos 
